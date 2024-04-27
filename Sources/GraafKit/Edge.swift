@@ -8,8 +8,12 @@
 import Foundation
 
 
-struct Edge<WEIGHT_T>
+struct Edge<WEIGHT_T:Comparable> : Equatable
 {
+    static func == (lhs: Edge<WEIGHT_T>, rhs: Edge<WEIGHT_T>) -> Bool {
+        return lhs.weight == rhs.weight
+    }
+    
     private var weight : WEIGHT_T
     
     init(weight: WEIGHT_T) {
